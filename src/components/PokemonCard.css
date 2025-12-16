@@ -25,12 +25,11 @@
 }
 
 .Boton {
-    border: solid 3px #B71C1C;
-    background-color: #D32F2F;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    border-width: 75%;
-    padding: 10px;
-    text-align: center;
+    border: solid 3px #B71C1C !important;
+    background-color: #D32F2F !important;
+    color: white !important;
+    font-weight: bold !important;
+    border-width: 75% !important;
+    padding: 10px !important;
+    text-align: center !important;
 }

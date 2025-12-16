@@ -1,0 +1,12 @@
+.ImagenPokemon {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.titulo {
+    color: #B71C1C !important;
+    font-weight: bold !important;
+    font-size: 30px !important;
+    text-align: center !important;
+}
