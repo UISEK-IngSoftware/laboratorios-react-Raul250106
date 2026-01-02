@@ -4,6 +4,8 @@ import { Container, Grid } from '@mui/material'
 import PokemonList from './components/PokemonList'
 import './App.css'
 import PokemonForm from './components/PokemonForm'
+import TrainerList from './components/TrainerList'
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
           {/* RUTAS */}
           <Routes>
             <Route path="/" element={<PokemonList />} />
+            <Route path="trainers" element={<TrainerList />} />
             <Route path="add-pokemon" element={<PokemonForm />} />
           </Routes>
         </BrowserRouter>

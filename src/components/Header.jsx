@@ -16,6 +16,7 @@ export default function Header() {
                         <Toolbar>
                             <Container>
                                 <Button color="inherit" href="/">Inicio</Button>
+                                <Button color="inherit" href="/trainers">Entrenadores</Button>
                                 <Button color="inherit" href="/add-pokemon">Agregar pokemons</Button>
                             </Container>
                         </Toolbar>
