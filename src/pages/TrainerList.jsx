@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import TrainerCard from './TrainerCard'
+import TrainerCard from '../components/TrainerCard'
 import "./TrainerList.css";
 import { useEffect, useState } from 'react';
 import { fetchTrainer } from '../services/trainerService';
