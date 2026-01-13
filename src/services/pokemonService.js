@@ -46,3 +46,30 @@ export async function createPokemon (pokemonData) {
     const response = await axios.post(`${API_BASE_URL}/pokemons/`, payload)
     return response.data;
 }
+
+export async function getPokemon (id) {
+    const response = await axios.get (`${API_BASE_URL}/pokemons/${id}/`);
+    return response.data
+}
+
+export async function editPokemon (id, pokemonData) {
+    let pictureBase64 = "";
+    if (pokemonData.picture && typeof pokemonData.picture !== "string") {
+        pictureBase64 = await fileToBase64(pokemonData.picture);
+    } else if (pokemonData.picture) {
+        pictureBase64 = pokemonData,picture;
+    }
+
+    const payload = {
+        ...pokemonData,
+        picture: pictureBase64,
+    }
+
+    const response = await axios.put(`${API_BASE_URL}/pokemons/${id}/`, payload);
+    return response.data
+}
+
+export async function deletePokemon (id) {
+    const response = await axios.delete(`${API_BASE_URL}/pokemons/${id}/`);
+    return response.data
+}

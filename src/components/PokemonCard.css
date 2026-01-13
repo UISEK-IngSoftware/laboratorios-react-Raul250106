@@ -24,9 +24,29 @@
     align-items: center;
 }
 
-.Boton {
+.Botoneli {
     border: solid 3px #B71C1C !important;
     background-color: #D32F2F !important;
+    color: white !important;
+    font-weight: bold !important;
+    border-width: 75% !important;
+    padding: 10px !important;
+    text-align: center !important;
+}
+
+.Botoninfo {
+    border: solid 3px #B71C1C !important;
+    background-color: white !important;
+    color: #B71C1C !important;
+    font-weight: bold !important;
+    border-width: 75% !important;
+    padding: 10px !important;
+    text-align: center !important;
+}
+
+.Botonedit {
+    border: solid 3px #B71C1C !important;
+    background-color: orange !important;
     color: white !important;
     font-weight: bold !important;
     border-width: 75% !important;
