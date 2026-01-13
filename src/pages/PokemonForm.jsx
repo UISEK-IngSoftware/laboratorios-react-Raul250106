@@ -77,17 +77,19 @@ export default function PokemonForm() {
 
     return (
         <>
-            <Typography className="titulo">
-                Pokemon
+            <Typography className="tituloForm">
+                POKEMON
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2, margin: 0.5}}>
-                <TextField label="Nombre" name="name" variant="outlined" value={pokemonData.name} onChange={handleChange} />
-                <TextField label="Tipo" name="type" variant="outlined" value={pokemonData.type} onChange={handleChange} />
-                <TextField label="Peso" name="weight" variant="outlined" value={pokemonData.weight} type="number" onChange={handleChange} />
-                <TextField label="Altura" name="height" variant="outlined" type="number" value={pokemonData.height} onChange={handleChange} />
-                <TextField label="Entrenador" name="trainer" variant="outlined" value={pokemonData.trainer} onChange={handleChange} />
+            <div className="FormularioContainer">
+            <Box className="Formulario" component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2, margin: 0.5}}>
+                <TextField className="Campos" label="Nombre" name="name" variant="outlined" value={pokemonData.name} onChange={handleChange} />
+                <TextField className="Campos" label="Tipo" name="type" variant="outlined" value={pokemonData.type} onChange={handleChange} />
+                <TextField className="Campos" label="Peso" name="weight" variant="outlined" value={pokemonData.weight} type="number" onChange={handleChange} />
+                <TextField className="Campos" label="Altura" name="height" variant="outlined" type="number" value={pokemonData.height} onChange={handleChange} />
+                <TextField className="Campos" label="Entrenador" name="trainer" variant="outlined" value={pokemonData.trainer} onChange={handleChange} />
                 <input type="file" name="picture" accept="Image/*" className="ImagenPokemon" required onChange={handleChange} />
             </Box>
+            </div>
             <Box className="botones">
                 <Button type="submit" variant="contained" className="guardar">Guardar</Button>
                 <Button type="submit" variant="contained" onClick={handleReturn} className="canc">Cancelar</Button>

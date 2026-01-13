@@ -15,7 +15,7 @@ export default function Header() {
 
     return (
         <>
-            <header>
+            <header className="Header">
                 <div className="pokedex-navbar">
                     <AppBar position="static">
                         <Toolbar>

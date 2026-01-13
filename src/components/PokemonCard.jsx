@@ -23,23 +23,26 @@ export default function PokemonCard({ pokemon, onDelete }) {
         <Card className="Carta">
             <CardMedia className="Imagen"
                 component="img"
-                height={500}
+                height={490}
                 image={pokemonImageURL}
                 alt={pokemon.name}
             />
-            <CardContent>
-                <Typography className="titulo" variant="h5" component="div">
+            <CardContent className="content">
+                <Typography className="titulo" variant="body1" component="div">
                     {pokemon.name}
                 </Typography>
-                <Typography className="cuerpo" variant="body2">
-                    Type: {pokemon.type}
-                </Typography>
+                <CardActions className="modelo-b">
+                    <Button className="Botoneli" size="small" onClick={() => onDelete && onDelete(pokemon)}>
+                        <span className="material-symbols-outlined">delete</span>
+                    </Button>
+                    <Button className="Botoninfo" size="small" onClick={handleView}>
+                        <span className="material-symbols-outlined">visibility</span>
+                    </Button>
+                    <Button className="Botonedit" size="small" onClick={handleEdit}>
+                        <span className="material-symbols-outlined">edit</span>
+                    </Button>
+                </CardActions>
             </CardContent>
-            <CardActions className="modelo-b">
-                <Button className="Botoneli" size="small" onClick={() => onDelete && onDelete(pokemon)}>Eliminar</Button>
-                <Button className="Botoninfo" size="small" onClick={handleView}>Más información</Button>
-                <Button className="Botonedit" size="small" onClick={handleEdit}>Editar</Button>
-            </CardActions>
         </Card>
     );
 }

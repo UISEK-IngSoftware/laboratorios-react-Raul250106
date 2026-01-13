@@ -2,8 +2,9 @@
     margin-bottom: 25px;
 }
 
-.pokedex-navbar .MuiAppBar-root{
+.pokedex-navbar .MuiAppBar-root {
     background-color: #D32F2F;
+    box-shadow: 0 4px 8px black !important;
 }
 
 .image-container {
@@ -12,4 +13,9 @@
     align-items: center;
     width: 100%;
     padding: 25px;
+}
+
+.Header .MuiButton-root,
+.Header .MuiTypography-root {
+  font-family: "Momo Trust Display", sans-serif !important;
 }
