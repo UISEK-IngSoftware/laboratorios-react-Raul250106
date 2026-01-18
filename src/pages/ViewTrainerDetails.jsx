@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getPokemon } from "../services/pokemonService";
+import { getTrainer } from "../services/trainerService";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
-import "./ViewPokemonDetails.css";
+import "./ViewTrainerDetails.css";
 
 const API_MEDIA_URL = import.meta.env.VITE_API_MEDIA_URL;
 
-export default function PokemonDetails() {
+export default function TrainerDetails() {
     const { id } = useParams();
-    const [pokemon, setPokemon] = useState(null);
+    const [trainer, setTrainer] = useState(null);
 
     useEffect(() => {
         (async () => {
             try {
-                const data = await getPokemon(id);
-                setPokemon(data);
+                const data = await getTrainer(id);
+                setTrainer(data);
             } catch (err) {
                 console.error(err);
-                alert("No se pudo cargar el Pokémon");
+                alert("No se pudo cargar el entrenador");
             }
         })();
     }, [id]);
 
-    if (!pokemon) return <p>Cargando...</p>;
+    if (!trainer) return <p>Cargando...</p>;
 
     return (
         <div className="Presentacion">
@@ -31,23 +31,20 @@ export default function PokemonDetails() {
                 <CardMedia
                     component="img"
                     sx={{ width: 350, height: 500, borderRadius: 2 }}
-                    image={`${API_MEDIA_URL}/${pokemon.picture}`}
-                    alt={pokemon.name}
+                    image={`${API_MEDIA_URL}/${trainer.picture}`}
+                    alt={trainer.name}
                 />
 
                 {/* Detalles a la derecha */}
                 <Box sx={{ display: "flex", flexDirection: "column", paddingLeft: 3 }}>
                     <CardContent sx={{ flex: "1 0 auto" }}>
                         <Typography variant="h2" className="TituloNombre">{pokemon.name}</Typography>
-                        <Typography variant="body1" className="CuerpoInfo">Tipo: {pokemon.type}</Typography>
-                        <Typography variant="body1" className="CuerpoInfo">Peso: {pokemon.weight}</Typography>
-                        <Typography variant="body1" className="CuerpoInfo">Altura: {pokemon.height}</Typography>
-                        <Typography variant="body1" className="CuerpoInfo">Entrenador: {pokemon.trainer}</Typography>
+                        <Typography variant="h2" className="TituloNombre">{pokemon.last_name}</Typography>
+                        <Typography variant="body1" className="CuerpoInfo">: {trainer.level}</Typography>
+                        <Typography variant="body1" className="CuerpoInfo">Peso: {trainer.birth}</Typography>
                     </CardContent>
                 </Box>
             </Card>
         </div>
     );
 }
-
-

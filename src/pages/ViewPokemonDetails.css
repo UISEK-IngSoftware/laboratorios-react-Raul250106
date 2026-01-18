@@ -1,0 +1,35 @@
+.Presentacion {
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 15px !important;
+    background-color: white !important;
+    box-shadow: 0 4px 8px black !important;
+    padding: 10px !important;
+}
+
+.TituloNombre {
+    border: solid 3px #B71C1C !important;
+    color: #B71C1C;
+    font-weight: bold;
+    font-size: 45px !important;
+    text-align: center !important;
+    font-family: "Momo Trust Display", sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 8px #B71C1C !important;
+    margin: 25px !important;
+    padding: 10px 35px !important;
+}
+
+.CuerpoInfo{
+    color: #B71C1C;
+    font-weight: bold;
+    font-size: 25px !important;
+    text-align: center !important;
+    font-family: "Momo Trust Display", sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    border-radius: 15px !important;
+    margin: 25px !important;
+    padding: 5px !important;
+}

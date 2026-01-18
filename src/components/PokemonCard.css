@@ -16,18 +16,18 @@
     font-weight: 400 !important;
     font-style: normal !important;
     border-radius: 15px !important;
-    box-shadow: 0 4px 8px black !important;
+    box-shadow: 0 4px 8px lightslategray !important;
+    margin: 7px !important;
 }
 
 .modelo-b {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1px !important;
+    margin: 1.5px !important;
 }
 
 .Botoneli {
-    border: solid 3px #B71C1C !important;
     background-color: #D32F2F !important;
     color: white !important;
     font-weight: bold !important;
@@ -38,11 +38,10 @@
     font-family: "Momo Trust Display", sans-serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    box-shadow: 0 4px 8px black !important;
+    box-shadow: 0 4px 8px lightslategray !important;
 }
 
 .Botoninfo {
-    border: solid 3px #B71C1C !important;
     background-color: white !important;
     color: #B71C1C !important;
     font-weight: bold !important;
@@ -53,11 +52,10 @@
     font-family: "Momo Trust Display", sans-serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    box-shadow: 0 4px 8px black !important;
+    box-shadow: 0 4px 8px lightslategray !important;
 }
 
 .Botonedit {
-    border: solid 3px #B71C1C !important;
     background-color: orange !important;
     color: white !important;
     font-weight: bold !important;
@@ -68,7 +66,7 @@
     font-family: "Momo Trust Display", sans-serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    box-shadow: 0 4px 8px black !important;
+    box-shadow: 0 4px 8px lightslategray !important;
 }
 
 .material-symbols-outlined {

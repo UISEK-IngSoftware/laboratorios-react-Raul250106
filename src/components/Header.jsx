@@ -1,4 +1,4 @@
-import { AppBar, Button, Container, Toolbar } from "@mui/material";
+import { AppBar, Button, Toolbar } from "@mui/material";
 import pokedexLogo from "../assets/11.png";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
@@ -29,6 +29,7 @@ export default function Header() {
                                 <>
                                     <Button color="inherit" href="/trainers">Entrenadores</Button>
                                     <Button color="inherit" href="/add-pokemon">Agregar pokemons</Button>
+                                    <Button color="inherit" href="/add-trainer">Agregar entrenadores</Button>
                                     <Button color="inherit" onClick={handleLogout}>Cerrar sesión</Button>
                                 </>
                             )}

@@ -57,7 +57,7 @@ export async function editPokemon (id, pokemonData) {
     if (pokemonData.picture && typeof pokemonData.picture !== "string") {
         pictureBase64 = await fileToBase64(pokemonData.picture);
     } else if (pokemonData.picture) {
-        pictureBase64 = pokemonData,picture;
+        pictureBase64 = pokemonData.picture;
     }
 
     const payload = {
