@@ -16,7 +16,7 @@ export default function TrainerCard({ Trainer, onDelete }) {
 
     const handleView = async () => {
         const id = Trainer._id ?? Trainer.id;
-        navigate(`/view-details/${id}/`)
+        navigate(`/view-trainer-details/${id}/`)
     }
 
     return (
@@ -32,7 +32,7 @@ export default function TrainerCard({ Trainer, onDelete }) {
                     {Trainer.name}
                 </Typography>
                 <CardActions className="modelo-b">
-                    <Button className="Botoneli" size="small" onClick={() => onDelete && onDelete(pokemon)}>
+                    <Button className="Botoneli" size="small" onClick={() => onDelete && onDelete(Trainer)}>
                         <span className="material-symbols-outlined">delete</span>
                     </Button>
                     <Button className="Botoninfo" size="small" onClick={handleView}>

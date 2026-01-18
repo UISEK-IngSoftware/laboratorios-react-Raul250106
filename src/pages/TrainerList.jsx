@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import TrainerCard from '../components/TrainerCard'
 import "./TrainerList.css";
 import { useEffect, useState } from 'react';
-import { fetchTrainer } from '../services/trainerService';
+import { deleteTrainer, fetchTrainer } from '../services/trainerService';
 
 export default function TrainerList() {
     const [trainer, setTrainer] = useState([]);
@@ -15,12 +15,28 @@ export default function TrainerList() {
         });
     }, []); 
 
+        const handleDelete = async (trainer) => {
+            const id = trainer.id ?? trainer.id;
+            const previous = trainer;
+            setTrainer(prev => prev.filter(p => (p._id ?? p.id) !== id));
+            try {
+                await deleteTrainer(id);
+            } catch (err) {
+                setTrainer(previous);
+                alert("Error al eliminar entrenador. Intente nuevamente.");
+            }
+        };
+    
+        const handleEdit = async () => {
+            
+        }
+
     return (
         <Grid container spacing={2}>
             {trainer.map(
                 (Trainer) => (
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-                        <TrainerCard Trainer={Trainer} />
+                        <TrainerCard Trainer={Trainer} onDelete={handleDelete}/>
                     </Grid>
                 ))}
         </Grid>

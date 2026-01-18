@@ -24,7 +24,7 @@ function App() {
             <Route path="add-pokemon" element={<PokemonForm />} />
             <Route path="edit-pokemon/:id" element={<PokemonForm />} />
             <Route path="view-details/:id" element={<PokemonDetails />} />
-            <Route path="view-details/:id" element={<TrainerDetails />} />
+            <Route path="view-trainer-details/:id" element={<TrainerDetails />} />
             <Route path="add-trainer" element={<TrainerForm />} />
             <Route path="edit-trainer/:id" element={<TrainerForm />} />
           </Routes>
