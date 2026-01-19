@@ -1,7 +1,9 @@
 .Carta {
-    border: 1px solid #e0e0e0 !important;
     border-radius: 15px !important;
-    background-color: white !important;
+    background-image: url('../assets/fondpoke.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
     box-shadow: 0 4px 8px black !important;
     padding: 10px !important;
 }
@@ -9,6 +11,7 @@
 .titulo {
     border: solid 3px #B71C1C !important;
     color: #B71C1C;
+    background-color: white !important;
     font-weight: bold;
     font-size: 30px !important;
     text-align: center;

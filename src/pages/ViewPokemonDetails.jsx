@@ -26,9 +26,10 @@ export default function PokemonDetails() {
 
     return (
         <div className="Presentacion">
-            <Card sx={{ display: "flex", maxWidth: 700, margin: "20px auto", padding: 2 }}>
+            <Box sx={{ display: "flex", maxWidth: 700 }}>
                 {/* Imagen a la izquierda */}
                 <CardMedia
+                    className="imagen"
                     component="img"
                     sx={{ width: 350, height: 500, borderRadius: 2 }}
                     image={`${API_MEDIA_URL}/${pokemon.picture}`}
@@ -36,17 +37,16 @@ export default function PokemonDetails() {
                 />
 
                 {/* Detalles a la derecha */}
-                <Box sx={{ display: "flex", flexDirection: "column", paddingLeft: 3 }}>
+                <Box className="detalles" sx={{ display: "flex", flexDirection: "column" }}>
                     <CardContent sx={{ flex: "1 0 auto" }}>
                         <Typography variant="h2" className="TituloNombre">Detalles</Typography>
                         <Typography variant="body1" className="CuerpoInfo">Nombre: {pokemon.name}</Typography>
                         <Typography variant="body1" className="CuerpoInfo">Tipo: {pokemon.type}</Typography>
                         <Typography variant="body1" className="CuerpoInfo">Peso: {pokemon.weight}</Typography>
                         <Typography variant="body1" className="CuerpoInfo">Altura: {pokemon.height}</Typography>
-                        <Typography variant="body1" className="CuerpoInfo">Entrenador: {pokemon.trainer}</Typography>
                     </CardContent>
                 </Box>
-            </Card>
+            </Box>
         </div>
     );
 }

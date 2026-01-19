@@ -2,9 +2,10 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/userService";
+import "./Login.css";
 
 export default function Login() {
-    const [loginData, setLoginData] = useState({ username: "", password: ""})
+    const [loginData, setLoginData] = useState({ username: "", password: "" })
     const navigate = useNavigate();
 
     // e significa EVENT (EVENTO)
@@ -20,12 +21,12 @@ export default function Login() {
         e.preventDefault();
         // Logica de autenticación
         console.log("llamada a api");
-        
+
         try {
             const response = await login(loginData.username, loginData.password)
             localStorage.setItem("access_token", response.access_token);
             alert("Inicio de sesion exitoso");
-            navigate("/"); 
+            navigate("/");
 
         } catch (error) {
             console.error("Error en login: ", error);
@@ -36,27 +37,31 @@ export default function Login() {
 
     return (
         <>
-            <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2, alignItems: "center" }}>
-                <Typography variant="h5" gutterBottom>
-                    Inicio de sesión
-                </Typography>
-                <TextField variant="outlined"
-                    label = "Usuario"
-                    name = "username"
-                    value = {loginData.username}
-                    onChange = {handleChange}
-                    required
-                />
-                <TextField variant="outlined"
-                    label = "Contraseña"
-                    name = "password"
-                    type = "password"
-                    value = {loginData.password}
-                    onChange = {handleChange}
-                    required
-                />
-                <Button type="submit" variant="contained">Iniciar sesión</Button>
-            </Box>
+            <div className="FormularioContainer">
+                <Box className="FormularioLog" component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2, alignItems: "center" }}>
+                    <Typography variant="h5" className="tituloLog">
+                        Inicio de sesión
+                    </Typography>
+                    <TextField variant="outlined"
+                        className="Campos"
+                        label="Usuario"
+                        name="username"
+                        value={loginData.username}
+                        onChange={handleChange}
+                        required
+                    />
+                    <TextField variant="outlined"
+                        className="Campos"
+                        label="Contraseña"
+                        name="password"
+                        type="password"
+                        value={loginData.password}
+                        onChange={handleChange}
+                        required
+                    />
+                    <Button className="entrar" type="submit" variant="contained">Ingresar</Button>
+                </Box>
+            </div>
         </>
     )
 }

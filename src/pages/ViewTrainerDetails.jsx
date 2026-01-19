@@ -26,9 +26,10 @@ export default function TrainerDetails() {
 
     return (
         <div className="Presentacion">
-            <Card sx={{ display: "flex", maxWidth: 700, margin: "20px auto", padding: 2 }}>
+            <Box sx={{ display: "flex", maxWidth: 700}}>
                 {/* Imagen a la izquierda */}
                 <CardMedia
+                    className="imagen"
                     component="img"
                     sx={{ width: 350, height: 500, borderRadius: 2 }}
                     image={`${API_MEDIA_URL}/${trainer.picture}`}
@@ -36,7 +37,7 @@ export default function TrainerDetails() {
                 />
 
                 {/* Detalles a la derecha */}
-                <Box sx={{ display: "flex", flexDirection: "column", paddingLeft: 3 }}>
+                <Box className="detalles" sx={{ display: "flex", flexDirection: "column", paddingLeft: 3 }}>
                     <CardContent sx={{ flex: "1 0 auto" }}>
                         <Typography variant="h2" className="TituloNombre">Detalles</Typography>
                         <Typography variant="body1" className="CuerpoInfo">Nombre: {trainer.name}</Typography>
@@ -45,7 +46,7 @@ export default function TrainerDetails() {
                         <Typography variant="body1" className="CuerpoInfo">Nacimiento: <br />{trainer.birth}</Typography>
                     </CardContent>
                 </Box>
-            </Card>
+            </Box>
         </div>
     );
 }
