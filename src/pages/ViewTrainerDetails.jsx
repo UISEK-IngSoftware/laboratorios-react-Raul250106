@@ -38,10 +38,11 @@ export default function TrainerDetails() {
                 {/* Detalles a la derecha */}
                 <Box sx={{ display: "flex", flexDirection: "column", paddingLeft: 3 }}>
                     <CardContent sx={{ flex: "1 0 auto" }}>
-                        <Typography variant="h2" className="TituloNombre">{pokemon.name}</Typography>
-                        <Typography variant="h2" className="TituloNombre">{pokemon.last_name}</Typography>
-                        <Typography variant="body1" className="CuerpoInfo">: {trainer.level}</Typography>
-                        <Typography variant="body1" className="CuerpoInfo">Peso: {trainer.birth}</Typography>
+                        <Typography variant="h2" className="TituloNombre">Detalles</Typography>
+                        <Typography variant="body1" className="CuerpoInfo">Nombre: {trainer.name}</Typography>
+                        <Typography variant="body1" className="CuerpoInfo">Apellido: {trainer.last_name}</Typography>
+                        <Typography variant="body1" className="CuerpoInfo">Nivel: {trainer.level}</Typography>
+                        <Typography variant="body1" className="CuerpoInfo">Nacimiento: <br />{trainer.birth}</Typography>
                     </CardContent>
                 </Box>
             </Card>

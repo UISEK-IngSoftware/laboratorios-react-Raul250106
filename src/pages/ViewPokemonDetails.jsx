@@ -38,7 +38,8 @@ export default function PokemonDetails() {
                 {/* Detalles a la derecha */}
                 <Box sx={{ display: "flex", flexDirection: "column", paddingLeft: 3 }}>
                     <CardContent sx={{ flex: "1 0 auto" }}>
-                        <Typography variant="h2" className="TituloNombre">{pokemon.name}</Typography>
+                        <Typography variant="h2" className="TituloNombre">Detalles</Typography>
+                        <Typography variant="body1" className="CuerpoInfo">Nombre: {pokemon.name}</Typography>
                         <Typography variant="body1" className="CuerpoInfo">Tipo: {pokemon.type}</Typography>
                         <Typography variant="body1" className="CuerpoInfo">Peso: {pokemon.weight}</Typography>
                         <Typography variant="body1" className="CuerpoInfo">Altura: {pokemon.height}</Typography>
