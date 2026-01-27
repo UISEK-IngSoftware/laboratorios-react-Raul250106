@@ -16,7 +16,7 @@ export default function TrainerList() {
     }, []); 
 
         const handleDelete = async (trainer) => {
-            const id = trainer.id ?? trainer.id;
+            const id = trainer._id ?? trainer.id;
             const previous = trainer;
             setTrainer(prev => prev.filter(p => (p._id ?? p.id) !== id));
             try {
@@ -26,10 +26,6 @@ export default function TrainerList() {
                 alert("Error al eliminar entrenador. Intente nuevamente.");
             }
         };
-    
-        const handleEdit = async () => {
-            
-        }
 
     return (
         <Grid container spacing={2}>

@@ -27,10 +27,6 @@ export default function PokemonList() {
         }
     };
 
-    const handleEdit = async () => {
-        
-    }
-
     return (
         <Grid container spacing={2}>
             {pokemons.map(
