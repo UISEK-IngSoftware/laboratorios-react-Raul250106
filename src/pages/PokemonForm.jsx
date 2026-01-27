@@ -3,6 +3,7 @@ import "./PokemonForm.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createPokemon, editPokemon, getPokemon } from "../services/pokemonService";
+import Spinner from "../components/Spinner";
 
 export default function PokemonForm() {
   const [pokemonData, setPokemonData] = useState({
@@ -13,6 +14,7 @@ export default function PokemonForm() {
     trainer: "",
     picture: null
   });
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -36,6 +38,7 @@ export default function PokemonForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       if (isEdit) {
         await editPokemon(id, pokemonData);
@@ -48,11 +51,14 @@ export default function PokemonForm() {
     } catch (err) {
       console.error(err);
       alert("Hubo un error al guardar el pokemon. Por favor, intenta de nuevo");
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     if (!isEdit) return;
+    setLoading(true);
 
     (async () => {
       try {
@@ -68,13 +74,21 @@ export default function PokemonForm() {
       } catch (err) {
         console.error("Error al editar pokemon", err);
         alert("No se puede obtener los datos del pokemon para editar");
-      }
+      } finally {
+        setLoading (false);
+      };
     })();
   }, [id, isEdit]);
 
   const handleReturn = () => {
     navigate("/");
   };
+
+  if (loading) {
+    return (
+      <Spinner />
+    );
+  }
 
   return (
     <>
@@ -147,7 +161,7 @@ export default function PokemonForm() {
 
           {/* BOTONES DENTRO DEL FORM */}
           <Box className="botones">
-            <Button type="submit" variant="contained" className="guardar">
+            <Button type="submit" variant="contained" className="guardar" disabled={loading}>
               Guardar
             </Button>
 

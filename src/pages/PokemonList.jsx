@@ -3,17 +3,28 @@ import PokemonCard from '../components/PokemonCard'
 import "./PokemonList.css";
 import { useEffect, useState } from 'react';
 import { fetchPokemons, deletePokemon } from '../services/pokemonService';
+import Spinner from '../components/Spinner';
 
 export default function PokemonList() {
     const [pokemons, setPokemons] = useState([]);
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
+        setLoading (true);
         fetchPokemons()
             .then((data) => setPokemons(data))
             .catch((error) => {
                 console.error('Error obteniendo pokemons:', error);
                 alert("Error obteniendo pokemons, regresa más tarde")
-            });
+            })
+            .finally(() => setLoading(false));
     }, []);
+
+    if (loading) {
+        return (
+            <Spinner />
+        );
+    }
 
     const handleDelete = async (pokemon) => {
         const id = pokemon.id ?? pokemon.id;

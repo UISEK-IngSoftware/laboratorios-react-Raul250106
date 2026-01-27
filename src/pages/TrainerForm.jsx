@@ -3,6 +3,7 @@ import "./TrainerForm.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createTrainer, editTrainer, getTrainer } from "../services/trainerService";
+import Spinner from '../components/Spinner';
 
 export default function TrainerForm() {
     const [trainerData, setTrainerData] = useState({
@@ -12,6 +13,7 @@ export default function TrainerForm() {
         birth: "",
         picture: null
     });
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -35,7 +37,7 @@ export default function TrainerForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setLoading(true);
         try {
             if (isEdit) {
                 await editTrainer(id, trainerData);
@@ -48,12 +50,14 @@ export default function TrainerForm() {
         } catch (err) {
             console.error(err);
             alert("Hubo un error al guardar el entrenador. Por favor, intenta de nuevo");
+        } finally {
+            setLoading(false);
         }
     };
 
     useEffect(() => {
         if (!isEdit) return;
-
+        setLoading(true);
         (async () => {
             try {
                 const data = await getTrainer(id);
@@ -67,6 +71,8 @@ export default function TrainerForm() {
             } catch (err) {
                 console.error("Error al editar entrenador", err);
                 alert("No se puede obtener los datos del entrenador para editar");
+            } finally {
+                setLoading(false);
             }
         })();
     }, [id, isEdit]);
@@ -74,6 +80,12 @@ export default function TrainerForm() {
     const handleReturn = () => {
         navigate("/trainers");
     };
+
+    if (loading) {
+        return (
+            <Spinner />
+        );
+    }
 
     return (
         <>

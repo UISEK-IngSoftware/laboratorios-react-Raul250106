@@ -3,10 +3,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/userService";
 import "./Login.css";
+import Spinner from "../components/Spinner";
 
 export default function Login() {
     const [loginData, setLoginData] = useState({ username: "", password: "" })
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     // e significa EVENT (EVENTO)
     const handleChange = async (e) => {
@@ -19,6 +21,7 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         // Logica de autenticación
         console.log("llamada a api");
 
@@ -32,8 +35,16 @@ export default function Login() {
             console.error("Error en login: ", error);
             alert("Error al iniciar sesión, verificar las credenciales.");
             return;
+        } finally {
+            setLoading(false);
         }
     };
+
+    if (loading) {
+        return (
+            <Spinner />
+        );
+    }
 
     return (
         <>
@@ -59,7 +70,10 @@ export default function Login() {
                         onChange={handleChange}
                         required
                     />
-                    <Button className="entrar" type="submit" variant="contained">Ingresar</Button>
+
+                    <Button className="entrar" type="submit" variant="contained" disabled={loading}>
+                        Ingresar
+                    </Button> 
                 </Box>
             </div>
         </>
