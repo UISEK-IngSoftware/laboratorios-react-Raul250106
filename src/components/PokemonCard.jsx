@@ -8,6 +8,7 @@ export default function PokemonCard({ pokemon, onDelete }) {
     const pokemonImageURL = `${API_MEDIA_URL}/${pokemon.picture}`;
 
     const navigate = useNavigate();
+    const isLoggedIn = !!localStorage.getItem("access_token");
 
     const handleEdit = async () => {
         const id = pokemon._id ?? pokemon.id;
@@ -32,15 +33,19 @@ export default function PokemonCard({ pokemon, onDelete }) {
                     {pokemon.name}
                 </Typography>
                 <CardActions className="modelo-b">
-                    <Button className="Botoneli" size="small" onClick={() => onDelete && onDelete(pokemon)}>
-                        <span className="material-symbols-outlined">delete</span>
-                    </Button>
+                    {isLoggedIn && (
+                        <Button className="Botoneli" size="small" onClick={() => onDelete && onDelete(pokemon)}>
+                            <span className="material-symbols-outlined">delete</span>
+                        </Button>
+                    )}
                     <Button className="Botoninfo" size="small" onClick={handleView}>
                         <span className="material-symbols-outlined">visibility</span>
                     </Button>
-                    <Button className="Botonedit" size="small" onClick={handleEdit}>
-                        <span className="material-symbols-outlined">edit</span>
-                    </Button>
+                    {isLoggedIn && (
+                        <Button className="Botonedit" size="small" onClick={handleEdit}>
+                            <span className="material-symbols-outlined">edit</span>
+                        </Button>
+                    )}
                 </CardActions>
             </CardContent>
         </Card>

@@ -10,10 +10,10 @@ export async function fetchTrainer() {
     return response.data;
 }
 
-/** CONFIGURAR INTERCEPTOR PARA AGREGAR TOKEN */
+/** CONFIGURAR INTERCEPTOR PARA AGREGAR TOKEN SOLO PARA POST, PUT, DELETE */
 axios.interceptors.request.use((config) => {
     const token = localStorage.getItem("access_token");
-    if (token) {
+    if (token && ['post', 'put', 'delete'].includes(config.method.toLowerCase())) {
         config.headers.Authorization = `Bearer ${token}`;
     }
     return config;

@@ -8,6 +8,7 @@ export default function TrainerCard({ Trainer, onDelete }) {
     const TrainerImageURL = `${API_MEDIA_URL}/${Trainer.picture}`;
 
     const navigate = useNavigate();
+    const isLoggedIn = !!localStorage.getItem("access_token");
 
     const handleEdit = async () => {
         const id = Trainer._id ?? Trainer.id;
@@ -32,15 +33,19 @@ export default function TrainerCard({ Trainer, onDelete }) {
                     {Trainer.name}
                 </Typography>
                 <CardActions className="modelo-b">
-                    <Button className="Botoneli" size="small" onClick={() => onDelete && onDelete(Trainer)}>
-                        <span className="material-symbols-outlined">delete</span>
-                    </Button>
+                    {isLoggedIn && (
+                        <Button className="Botoneli" size="small" onClick={() => onDelete && onDelete(Trainer)}>
+                            <span className="material-symbols-outlined">delete</span>
+                        </Button>
+                    )}
                     <Button className="Botoninfo" size="small" onClick={handleView}>
                         <span className="material-symbols-outlined">visibility</span>
                     </Button>
-                    <Button className="Botonedit" size="small" onClick={handleEdit}>
-                        <span className="material-symbols-outlined">edit</span>
-                    </Button>
+                    {isLoggedIn && (
+                        <Button className="Botonedit" size="small" onClick={handleEdit}>
+                            <span className="material-symbols-outlined">edit</span>
+                        </Button>
+                    )}
                 </CardActions>
             </CardContent>
         </Card>
